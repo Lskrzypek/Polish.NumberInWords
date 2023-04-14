@@ -1,0 +1,488 @@
+﻿namespace Polish.NumbersInWords.Tests.NumberInWordsProviders.ComplexNumbers.Ordinal
+{
+    public class FeminineTests
+    {
+        #region Feminine Nominative
+        [Theory]
+        [InlineData(1, "pierwsza")]
+        [InlineData(2, "druga")]
+        [InlineData(3, "trzecia")]
+        [InlineData(4, "czwarta")]
+        [InlineData(5, "piąta")]
+        [InlineData(6, "szósta")]
+        [InlineData(7, "siódma")]
+        [InlineData(8, "ósma")]
+        [InlineData(9, "dziewiąta")]
+        [InlineData(10, "dziesiąta")]
+        [InlineData(11, "jedenasta")]
+        [InlineData(12, "dwunasta")]
+        [InlineData(13, "trzynasta")]
+        [InlineData(14, "czternasta")]
+        [InlineData(15, "piętnasta")]
+        [InlineData(16, "szesnasta")]
+        [InlineData(17, "siedemnasta")]
+        [InlineData(18, "osiemnasta")]
+        [InlineData(19, "dziewiętnasta")]
+        [InlineData(20, "dwudziesta")]
+        [InlineData(30, "trzydziesta")]
+        [InlineData(40, "czterdziesta")]
+        [InlineData(50, "pięćdziesiąta")]
+        [InlineData(60, "sześćdziesiąta")]
+        [InlineData(70, "siedemdziesiąta")]
+        [InlineData(80, "osiemdziesiąta")]
+        [InlineData(90, "dziewięćdziesiąta")]
+        [InlineData(21, "dwudziesta pierwsza")]
+        [InlineData(32, "trzydziesta druga")]
+        [InlineData(43, "czterdziesta trzecia")]
+        [InlineData(100, "setna")]
+        [InlineData(200, "dwusetna")]
+        [InlineData(300, "trzechsetna")]
+        [InlineData(400, "czterechsetna")]
+        [InlineData(500, "pięćsetna")]
+        [InlineData(600, "sześćsetna")]
+        [InlineData(700, "siedemsetna")]
+        [InlineData(800, "osiemsetna")]
+        [InlineData(900, "dziewięćsetna")]
+        [InlineData(101, "sto pierwsza")]
+        [InlineData(202, "dwieście druga")]
+        [InlineData(310, "trzysta dziesiąta")]
+        [InlineData(412, "czterysta dwunasta")]
+        [InlineData(556, "pięćset pięćdziesiąta szósta")]
+        [InlineData(1000, "tysięczna")]
+        [InlineData(1000000, "milionowa")]
+        [InlineData(1000000000, "miliardowa")]
+        [InlineData(1000000000000, "bilionowa")]
+        [InlineData(2000, "dwutysięczna")]
+        [InlineData(5000, "pięciotysięczna")]
+        [InlineData(101000, "stujednotysięczna")]
+        [InlineData(206000, "dwóchsetsześciotysięczna")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiąta")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwsza")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiąta czwarta")]
+        public void ToWords_Nominative(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Nominative);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Genitive
+        [Theory]
+        [InlineData(1, "pierwszej")]
+        [InlineData(2, "drugiej")]
+        [InlineData(3, "trzeciej")]
+        [InlineData(4, "czwartej")]
+        [InlineData(5, "piątej")]
+        [InlineData(6, "szóstej")]
+        [InlineData(7, "siódmej")]
+        [InlineData(8, "ósmej")]
+        [InlineData(9, "dziewiątej")]
+        [InlineData(10, "dziesiątej")]
+        [InlineData(11, "jedenastej")]
+        [InlineData(12, "dwunastej")]
+        [InlineData(13, "trzynastej")]
+        [InlineData(14, "czternastej")]
+        [InlineData(15, "piętnastej")]
+        [InlineData(16, "szesnastej")]
+        [InlineData(17, "siedemnastej")]
+        [InlineData(18, "osiemnastej")]
+        [InlineData(19, "dziewiętnastej")]
+        [InlineData(20, "dwudziestej")]
+        [InlineData(30, "trzydziestej")]
+        [InlineData(40, "czterdziestej")]
+        [InlineData(50, "pięćdziesiątej")]
+        [InlineData(60, "sześćdziesiątej")]
+        [InlineData(70, "siedemdziesiątej")]
+        [InlineData(80, "osiemdziesiątej")]
+        [InlineData(90, "dziewięćdziesiątej")]
+        [InlineData(21, "dwudziestej pierwszej")]
+        [InlineData(32, "trzydziestej drugiej")]
+        [InlineData(43, "czterdziestej trzeciej")]
+        [InlineData(100, "setnej")]
+        [InlineData(200, "dwusetnej")]
+        [InlineData(300, "trzechsetnej")]
+        [InlineData(400, "czterechsetnej")]
+        [InlineData(500, "pięćsetnej")]
+        [InlineData(600, "sześćsetnej")]
+        [InlineData(700, "siedemsetnej")]
+        [InlineData(800, "osiemsetnej")]
+        [InlineData(900, "dziewięćsetnej")]
+        [InlineData(101, "sto pierwszej")]
+        [InlineData(202, "dwieście drugiej")]
+        [InlineData(310, "trzysta dziesiątej")]
+        [InlineData(412, "czterysta dwunastej")]
+        [InlineData(556, "pięćset pięćdziesiątej szóstej")]
+        [InlineData(1000, "tysięcznej")]
+        [InlineData(1000000, "milionowej")]
+        [InlineData(1000000000, "miliardowej")]
+        [InlineData(1000000000000, "bilionowej")]
+        [InlineData(2000, "dwutysięcznej")]
+        [InlineData(5000, "pięciotysięcznej")]
+        [InlineData(101000, "stujednotysięcznej")]
+        [InlineData(206000, "dwóchsetsześciotysięcznej")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątej")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwszej")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątej czwartej")]
+        public void ToWords_Genitive(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Genitive);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Dative
+        [Theory]
+        [InlineData(1, "pierwszej")]
+        [InlineData(2, "drugiej")]
+        [InlineData(3, "trzeciej")]
+        [InlineData(4, "czwartej")]
+        [InlineData(5, "piątej")]
+        [InlineData(6, "szóstej")]
+        [InlineData(7, "siódmej")]
+        [InlineData(8, "ósmej")]
+        [InlineData(9, "dziewiątej")]
+        [InlineData(10, "dziesiątej")]
+        [InlineData(11, "jedenastej")]
+        [InlineData(12, "dwunastej")]
+        [InlineData(13, "trzynastej")]
+        [InlineData(14, "czternastej")]
+        [InlineData(15, "piętnastej")]
+        [InlineData(16, "szesnastej")]
+        [InlineData(17, "siedemnastej")]
+        [InlineData(18, "osiemnastej")]
+        [InlineData(19, "dziewiętnastej")]
+        [InlineData(20, "dwudziestej")]
+        [InlineData(30, "trzydziestej")]
+        [InlineData(40, "czterdziestej")]
+        [InlineData(50, "pięćdziesiątej")]
+        [InlineData(60, "sześćdziesiątej")]
+        [InlineData(70, "siedemdziesiątej")]
+        [InlineData(80, "osiemdziesiątej")]
+        [InlineData(90, "dziewięćdziesiątej")]
+        [InlineData(21, "dwudziestej pierwszej")]
+        [InlineData(32, "trzydziestej drugiej")]
+        [InlineData(43, "czterdziestej trzeciej")]
+        [InlineData(100, "setnej")]
+        [InlineData(200, "dwusetnej")]
+        [InlineData(300, "trzechsetnej")]
+        [InlineData(400, "czterechsetnej")]
+        [InlineData(500, "pięćsetnej")]
+        [InlineData(600, "sześćsetnej")]
+        [InlineData(700, "siedemsetnej")]
+        [InlineData(800, "osiemsetnej")]
+        [InlineData(900, "dziewięćsetnej")]
+        [InlineData(101, "sto pierwszej")]
+        [InlineData(202, "dwieście drugiej")]
+        [InlineData(310, "trzysta dziesiątej")]
+        [InlineData(412, "czterysta dwunastej")]
+        [InlineData(556, "pięćset pięćdziesiątej szóstej")]
+        [InlineData(1000, "tysięcznej")]
+        [InlineData(1000000, "milionowej")]
+        [InlineData(1000000000, "miliardowej")]
+        [InlineData(1000000000000, "bilionowej")]
+        [InlineData(2000, "dwutysięcznej")]
+        [InlineData(5000, "pięciotysięcznej")]
+        [InlineData(101000, "stujednotysięcznej")]
+        [InlineData(206000, "dwóchsetsześciotysięcznej")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątej")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwszej")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątej czwartej")]
+        public void ToWords_Dative(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Dative);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Accusative
+        [Theory]
+        [InlineData(1, "pierwszą")]
+        [InlineData(2, "drugą")]
+        [InlineData(3, "trzecią")]
+        [InlineData(4, "czwartą")]
+        [InlineData(5, "piątą")]
+        [InlineData(6, "szóstą")]
+        [InlineData(7, "siódmą")]
+        [InlineData(8, "ósmą")]
+        [InlineData(9, "dziewiątą")]
+        [InlineData(10, "dziesiątą")]
+        [InlineData(11, "jedenastą")]
+        [InlineData(12, "dwunastą")]
+        [InlineData(13, "trzynastą")]
+        [InlineData(14, "czternastą")]
+        [InlineData(15, "piętnastą")]
+        [InlineData(16, "szesnastą")]
+        [InlineData(17, "siedemnastą")]
+        [InlineData(18, "osiemnastą")]
+        [InlineData(19, "dziewiętnastą")]
+        [InlineData(20, "dwudziestą")]
+        [InlineData(30, "trzydziestą")]
+        [InlineData(40, "czterdziestą")]
+        [InlineData(50, "pięćdziesiątą")]
+        [InlineData(60, "sześćdziesiątą")]
+        [InlineData(70, "siedemdziesiątą")]
+        [InlineData(80, "osiemdziesiątą")]
+        [InlineData(90, "dziewięćdziesiątą")]
+        [InlineData(21, "dwudziestą pierwszą")]
+        [InlineData(32, "trzydziestą drugą")]
+        [InlineData(43, "czterdziestą trzecią")]
+        [InlineData(100, "setną")]
+        [InlineData(200, "dwusetną")]
+        [InlineData(300, "trzechsetną")]
+        [InlineData(400, "czterechsetną")]
+        [InlineData(500, "pięćsetną")]
+        [InlineData(600, "sześćsetną")]
+        [InlineData(700, "siedemsetną")]
+        [InlineData(800, "osiemsetną")]
+        [InlineData(900, "dziewięćsetną")]
+        [InlineData(101, "sto pierwszą")]
+        [InlineData(202, "dwieście drugą")]
+        [InlineData(310, "trzysta dziesiątą")]
+        [InlineData(412, "czterysta dwunastą")]
+        [InlineData(556, "pięćset pięćdziesiątą szóstą")]
+        [InlineData(1000, "tysięczną")]
+        [InlineData(1000000, "milionową")]
+        [InlineData(1000000000, "miliardową")]
+        [InlineData(1000000000000, "bilionową")]
+        [InlineData(2000, "dwutysięczną")]
+        [InlineData(5000, "pięciotysięczną")]
+        [InlineData(101000, "stujednotysięczną")]
+        [InlineData(206000, "dwóchsetsześciotysięczną")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątą")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwszą")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątą czwartą")]
+        public void ToWords_Accusative(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Accusative);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Instrumental
+        [Theory]
+        [InlineData(1, "pierwszą")]
+        [InlineData(2, "drugą")]
+        [InlineData(3, "trzecią")]
+        [InlineData(4, "czwartą")]
+        [InlineData(5, "piątą")]
+        [InlineData(6, "szóstą")]
+        [InlineData(7, "siódmą")]
+        [InlineData(8, "ósmą")]
+        [InlineData(9, "dziewiątą")]
+        [InlineData(10, "dziesiątą")]
+        [InlineData(11, "jedenastą")]
+        [InlineData(12, "dwunastą")]
+        [InlineData(13, "trzynastą")]
+        [InlineData(14, "czternastą")]
+        [InlineData(15, "piętnastą")]
+        [InlineData(16, "szesnastą")]
+        [InlineData(17, "siedemnastą")]
+        [InlineData(18, "osiemnastą")]
+        [InlineData(19, "dziewiętnastą")]
+        [InlineData(20, "dwudziestą")]
+        [InlineData(30, "trzydziestą")]
+        [InlineData(40, "czterdziestą")]
+        [InlineData(50, "pięćdziesiątą")]
+        [InlineData(60, "sześćdziesiątą")]
+        [InlineData(70, "siedemdziesiątą")]
+        [InlineData(80, "osiemdziesiątą")]
+        [InlineData(90, "dziewięćdziesiątą")]
+        [InlineData(21, "dwudziestą pierwszą")]
+        [InlineData(32, "trzydziestą drugą")]
+        [InlineData(43, "czterdziestą trzecią")]
+        [InlineData(100, "setną")]
+        [InlineData(200, "dwusetną")]
+        [InlineData(300, "trzechsetną")]
+        [InlineData(400, "czterechsetną")]
+        [InlineData(500, "pięćsetną")]
+        [InlineData(600, "sześćsetną")]
+        [InlineData(700, "siedemsetną")]
+        [InlineData(800, "osiemsetną")]
+        [InlineData(900, "dziewięćsetną")]
+        [InlineData(101, "sto pierwszą")]
+        [InlineData(202, "dwieście drugą")]
+        [InlineData(310, "trzysta dziesiątą")]
+        [InlineData(412, "czterysta dwunastą")]
+        [InlineData(556, "pięćset pięćdziesiątą szóstą")]
+        [InlineData(1000, "tysięczną")]
+        [InlineData(1000000, "milionową")]
+        [InlineData(1000000000, "miliardową")]
+        [InlineData(1000000000000, "bilionową")]
+        [InlineData(2000, "dwutysięczną")]
+        [InlineData(5000, "pięciotysięczną")]
+        [InlineData(101000, "stujednotysięczną")]
+        [InlineData(206000, "dwóchsetsześciotysięczną")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątą")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwszą")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątą czwartą")]
+        public void ToWords_Instrumental(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Instrumental);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Locative
+        [Theory]
+        [InlineData(1, "pierwszej")]
+        [InlineData(2, "drugiej")]
+        [InlineData(3, "trzeciej")]
+        [InlineData(4, "czwartej")]
+        [InlineData(5, "piątej")]
+        [InlineData(6, "szóstej")]
+        [InlineData(7, "siódmej")]
+        [InlineData(8, "ósmej")]
+        [InlineData(9, "dziewiątej")]
+        [InlineData(10, "dziesiątej")]
+        [InlineData(11, "jedenastej")]
+        [InlineData(12, "dwunastej")]
+        [InlineData(13, "trzynastej")]
+        [InlineData(14, "czternastej")]
+        [InlineData(15, "piętnastej")]
+        [InlineData(16, "szesnastej")]
+        [InlineData(17, "siedemnastej")]
+        [InlineData(18, "osiemnastej")]
+        [InlineData(19, "dziewiętnastej")]
+        [InlineData(20, "dwudziestej")]
+        [InlineData(30, "trzydziestej")]
+        [InlineData(40, "czterdziestej")]
+        [InlineData(50, "pięćdziesiątej")]
+        [InlineData(60, "sześćdziesiątej")]
+        [InlineData(70, "siedemdziesiątej")]
+        [InlineData(80, "osiemdziesiątej")]
+        [InlineData(90, "dziewięćdziesiątej")]
+        [InlineData(21, "dwudziestej pierwszej")]
+        [InlineData(32, "trzydziestej drugiej")]
+        [InlineData(43, "czterdziestej trzeciej")]
+        [InlineData(100, "setnej")]
+        [InlineData(200, "dwusetnej")]
+        [InlineData(300, "trzechsetnej")]
+        [InlineData(400, "czterechsetnej")]
+        [InlineData(500, "pięćsetnej")]
+        [InlineData(600, "sześćsetnej")]
+        [InlineData(700, "siedemsetnej")]
+        [InlineData(800, "osiemsetnej")]
+        [InlineData(900, "dziewięćsetnej")]
+        [InlineData(101, "sto pierwszej")]
+        [InlineData(202, "dwieście drugiej")]
+        [InlineData(310, "trzysta dziesiątej")]
+        [InlineData(412, "czterysta dwunastej")]
+        [InlineData(556, "pięćset pięćdziesiątej szóstej")]
+        [InlineData(1000, "tysięcznej")]
+        [InlineData(1000000, "milionowej")]
+        [InlineData(1000000000, "miliardowej")]
+        [InlineData(1000000000000, "bilionowej")]
+        [InlineData(2000, "dwutysięcznej")]
+        [InlineData(5000, "pięciotysięcznej")]
+        [InlineData(101000, "stujednotysięcznej")]
+        [InlineData(206000, "dwóchsetsześciotysięcznej")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątej")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwszej")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątej czwartej")]
+        public void ToWords_Locative(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Locative);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+
+        #region Feminine Vocative
+        [Theory]
+        [InlineData(1, "pierwsza")]
+        [InlineData(2, "druga")]
+        [InlineData(3, "trzecia")]
+        [InlineData(4, "czwarta")]
+        [InlineData(5, "piąta")]
+        [InlineData(6, "szósta")]
+        [InlineData(7, "siódma")]
+        [InlineData(8, "ósma")]
+        [InlineData(9, "dziewiąta")]
+        [InlineData(10, "dziesiąta")]
+        [InlineData(11, "jedenasta")]
+        [InlineData(12, "dwunasta")]
+        [InlineData(13, "trzynasta")]
+        [InlineData(14, "czternasta")]
+        [InlineData(15, "piętnasta")]
+        [InlineData(16, "szesnasta")]
+        [InlineData(17, "siedemnasta")]
+        [InlineData(18, "osiemnasta")]
+        [InlineData(19, "dziewiętnasta")]
+        [InlineData(20, "dwudziesta")]
+        [InlineData(30, "trzydziesta")]
+        [InlineData(40, "czterdziesta")]
+        [InlineData(50, "pięćdziesiąta")]
+        [InlineData(60, "sześćdziesiąta")]
+        [InlineData(70, "siedemdziesiąta")]
+        [InlineData(80, "osiemdziesiąta")]
+        [InlineData(90, "dziewięćdziesiąta")]
+        [InlineData(21, "dwudziesta pierwsza")]
+        [InlineData(32, "trzydziesta druga")]
+        [InlineData(43, "czterdziesta trzecia")]
+        [InlineData(100, "setna")]
+        [InlineData(200, "dwusetna")]
+        [InlineData(300, "trzechsetna")]
+        [InlineData(400, "czterechsetna")]
+        [InlineData(500, "pięćsetna")]
+        [InlineData(600, "sześćsetna")]
+        [InlineData(700, "siedemsetna")]
+        [InlineData(800, "osiemsetna")]
+        [InlineData(900, "dziewięćsetna")]
+        [InlineData(101, "sto pierwsza")]
+        [InlineData(202, "dwieście druga")]
+        [InlineData(310, "trzysta dziesiąta")]
+        [InlineData(412, "czterysta dwunasta")]
+        [InlineData(556, "pięćset pięćdziesiąta szósta")]
+        [InlineData(1000, "tysięczna")]
+        [InlineData(1000000, "milionowa")]
+        [InlineData(1000000000, "miliardowa")]
+        [InlineData(1000000000000, "bilionowa")]
+        [InlineData(2000, "dwutysięczna")]
+        [InlineData(5000, "pięciotysięczna")]
+        [InlineData(101000, "stujednotysięczna")]
+        [InlineData(206000, "dwóchsetsześciotysięczna")]
+        [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiąta")]
+        [InlineData(1001001001, "miliard milion tysiąc pierwsza")]
+        [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiąta czwarta")]
+        public void ToWords_Vocative(long number, string expectedWords)
+        {
+            string resultWords = number.ToPolishWords()
+                .Ordinal()
+                .Gender(Gender.Feminine)
+                .Case(Case.Vocative);
+
+            Assert.Equal(expectedWords, resultWords);
+        }
+
+        #endregion
+    }
+}
