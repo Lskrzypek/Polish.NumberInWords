@@ -50,7 +50,7 @@ long.MaxValue.ToPolishWords()
 // dziesięć tysięcy dwieście osiemdziesiątej szóstej
 ```
 
-### Possibility to create a sentence depends of number enclension.
+### Possibility to create a sentence depends of number denclension.
 ```
 var bikesCount = int.Parse(Console.ReadLine());
 
