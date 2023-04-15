@@ -36,3 +36,8 @@ dwudziestu pięciu zł (PLN)
     
  // dwudziestu pięciu zł (PLN)
 ```
+
+## Others
+See my others libraries:
+- [Polish.CurrenciesInWords](https://github.com/Lskrzypek/Polish.CurrenciesInWords)
+- [Polish.DatesInWords](https://github.com/Lskrzypek/Polish.DatesInWords)
