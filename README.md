@@ -1,7 +1,7 @@
 # Polish.NumberInWords
 Friendly library to convert numbers to Polish words. 
 
-```
+```c
 Console.WriteLine(123.ToPolishWords());
 
 // sto dwadzieścia trzy
@@ -11,7 +11,7 @@ Polish.NumberInWords offers following features:
 
 ### All 7 Polish cases: Nominative, Genitive, Dative, Accusative, Instrumental, Locative, Vocative
 
-```
+```c
 15.ToPolishWords().Case(Case.Dative)  
 
 // piętnastu
@@ -19,7 +19,7 @@ Polish.NumberInWords offers following features:
 
 ### Genders: Masculine, Feminine, Neuter
 
-```
+```c
 22.ToPolishWords().Gender(Gender.Feminine)
 
 // dwadzieścia dwie
@@ -27,21 +27,21 @@ Polish.NumberInWords offers following features:
 
 ### Cardinal numbers (one, two...) and ordinal numbers (first, second...)
 
-```
+```c
 9.ToPolishWords().Ordinal()
 
 // dziewiąty
 ```
 
 ### Big numbers
-```
+```c
 long.MaxValue.ToPolishWords()
 
 // dziewięć trylionów dwieście dwadzieścia trzy biliardy trzysta siedemdziesiąt dwa biliony trzydzieści sześć miliardów osiemset pięćdziesiąt cztery miliony siedemset siedemdziesiąt pięć tysięcy osiemset siedem
 ```
 
 ### And mix everything together with fluent methods
-```
+```c
 10286.ToPolishWords()
     .Case(Case.Genitive)
     .Ordinal()
@@ -51,7 +51,7 @@ long.MaxValue.ToPolishWords()
 ```
 
 ### Possibility to create a sentence depends of number denclension.
-```
+```c
 var bikesCount = int.Parse(Console.ReadLine());
 
 var bikeWord = new Phrase()
