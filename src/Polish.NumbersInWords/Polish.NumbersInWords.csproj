@@ -3,5 +3,27 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Version>1.0.0</Version>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Title>Convert numbers to Polish words.</Title>
+		<Authors>lukasz_skrzypek</Authors>
+		<Description>Friendly library to convert numbers to Polish words. Includes all 7 Polish cases, genders and cardinal/ordinal declension. Possibility to create a sentence depends of number.</Description>
+		<Copyright>MIT licence</Copyright>
+		<PackageProjectUrl>https://github.com/Lskrzypek/Polish.NumberInWords</PackageProjectUrl>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Lskrzypek/Polish.NumberInWords</RepositoryUrl>
+		<PackageTags>Polish, Humanizer, Humanize, Number, Numbers, PL, Case, Gender, Declension, Ordinal</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\..\..\..\..\Desktop\Programowanie\NumbersInWords\Icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\..\..\..\..\Desktop\Programowanie\NumbersInWords\Readme.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 </Project>
