@@ -59,6 +59,10 @@
         [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiąta")]
         [InlineData(1001001001, "miliard milion tysiąc pierwsza")]
         [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiąta czwarta")]
+        [InlineData(1012, "tysiąc dwunasta")]
+        [InlineData(2137, "dwa tysiące sto trzydziesta siódma")]
+        [InlineData(2022202000, "dwa miliardy dwadzieścia dwa miliony dwóchsetdwutysięczna")]
+        [InlineData(12002020100, "dwanaście miliardów dwa miliony dwadzieścia tysięcy setna")]    
         public void ToWords_Nominative(long number, string expectedWords)
         {
             string resultWords = number.ToPolishWords()
@@ -128,6 +132,10 @@
         [InlineData(1234567890, "miliard dwieście trzydzieści cztery miliony pięćset sześćdziesiąt siedem tysięcy osiemset dziewięćdziesiątej")]
         [InlineData(1001001001, "miliard milion tysiąc pierwszej")]
         [InlineData(413254, "czterysta trzynaście tysięcy dwieście pięćdziesiątej czwartej")]
+        [InlineData(1012, "tysiąc dwunastej")]
+        [InlineData(2137, "dwa tysiące sto trzydziestej siódmej")]
+        [InlineData(2022202000, "dwa miliardy dwadzieścia dwa miliony dwóchsetdwutysięcznej")]
+        [InlineData(12002020100, "dwanaście miliardów dwa miliony dwadzieścia tysięcy setnej")]
         public void ToWords_Genitive(long number, string expectedWords)
         {
             string resultWords = number.ToPolishWords()

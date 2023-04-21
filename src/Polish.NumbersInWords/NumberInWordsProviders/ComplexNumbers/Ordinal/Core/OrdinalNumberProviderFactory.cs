@@ -1,4 +1,5 @@
 ﻿using Polish.NumbersInWords.NumberInWordsProviders.BasicNumbers;
+using Polish.NumbersInWords.NumberInWordsProviders.BasicNumbers.Cardinal.Singular;
 
 namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Core
 {
@@ -28,6 +29,7 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
                 basicCardinalNumbers,
                 from_2_to_4_thousands,
                 up_to_4_thousands,
+                basicThousandsNumbers: new SingularMasculineNominative(),
                 _bigNumbersPrefixes,
                 hundreds,
                 _configuration);

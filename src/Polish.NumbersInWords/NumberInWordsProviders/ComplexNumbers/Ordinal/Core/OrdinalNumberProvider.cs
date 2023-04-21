@@ -9,6 +9,7 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
         protected readonly INumberSeparator _numberSeparator;
         protected readonly ISimpleNumbers _basicOrdinalNumbers;
         protected readonly ISimpleNumbers _basicCardinalNumbers;
+        protected readonly ISimpleNumbers _basicThousandsNumbers;
         protected readonly IBigNumbersPrefixes _bigNumbersPrefixes;
         protected readonly ISimpleNumbers _from_2_to_4_thousands;
         protected readonly ISimpleNumbers _up_to_4_thousands;
@@ -19,6 +20,7 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
             ISimpleNumbers basicCardinalNumbers,
             ISimpleNumbers from_2_to_4_thousands,
             ISimpleNumbers up_to_4_thousands,
+            ISimpleNumbers basicThousandsNumbers,
             IBigNumbersPrefixes bigNumbersPrefixes,
             ISimpleNumbers hundreds,
             INumberInWordsConfiguration configuration)
@@ -28,6 +30,7 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
             _basicCardinalNumbers = basicCardinalNumbers;
             _from_2_to_4_thousands = from_2_to_4_thousands;
             _up_to_4_thousands = up_to_4_thousands;
+            _basicThousandsNumbers = basicThousandsNumbers;
             _bigNumbersPrefixes = bigNumbersPrefixes;
             _hundreds = hundreds;
             _configuration = configuration;
@@ -209,7 +212,7 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
             var last2digs = number % 100;
             var hundreds = number % 1000 - last2digs;
 
-            var hundredsSolved = hundreds > 0 ? _basicCardinalNumbers.Solve(hundreds) : "";
+            var hundredsSolved = hundreds > 0 ? _basicThousandsNumbers.Solve(hundreds) : "";
             var last2digsSolved = SolveLast2digsInThousands(last2digs);
 
             if (last2digs == 1)
@@ -232,10 +235,10 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
                 return "";
 
             if (number == 1)
-                return _basicCardinalNumbers.Number_1;
+                return _basicThousandsNumbers.Number_1;
 
             if (number < 20)
-                return _basicCardinalNumbers.Solve((int)number);
+                return _basicThousandsNumbers.Solve((int)number);
 
             var lastDigit = number % 10;
             var tens = number % 100 - lastDigit;
@@ -246,12 +249,12 @@ namespace Polish.NumbersInWords.NumberInWordsProviders.ComplexNumbers.Ordinal.Co
 
             // 10, 20, 30...
             if (lastDigit == 0)
-                return _basicCardinalNumbers.Solve((int)tens);
+                return _basicThousandsNumbers.Solve((int)tens);
 
             // 25, 46, ...
             return string.Format("{0} {1}",
-                _basicCardinalNumbers.Solve((int)tens),
-                _basicCardinalNumbers.Solve((int)lastDigit));
+                _basicThousandsNumbers.Solve((int)tens),
+                _basicThousandsNumbers.Solve((int)lastDigit));
         }
     }
 }
