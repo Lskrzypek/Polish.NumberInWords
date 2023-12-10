@@ -1,40 +1,75 @@
 # Polish.NumberInWords
-Friendly library to convert an amount to Polish words in specified currency. 
+Friendly library to convert numbers to Polish words.
 
 ```c
-Console.WriteLine(25.20.ToCurrencyPolishWords());
+Console.WriteLine(123.ToPolishWords());
 
-// dwadzieścia pięć złotych i dwadzieścia groszy
+// sto dwadzieścia trzy
 ```
 
 Polish.NumberInWords offers following features:
 
-### Specified currency
+### All 7 Polish cases: Nominative, Genitive, Dative, Accusative, Instrumental, Locative, Vocative
 
 ```c
-25.20.ToCurrencyPolishWords(Currency.USD);
+15.ToPolishWords().Case(Case.Dative);
 
-// dwadzieścia pięć dolarów i dwadzieścia centów
+// piętnastu
 ```
 
-### All 7 Polish cases declension: Nominative, Genitive, Dative, Accusative, Instrumental, Locative, Vocative
+### Genders: Masculine, Feminine, Neuter
 
 ```c
-25.20.ToCurrencyPolishWords()
-    .Case(Case.Genitive));
+22.ToPolishWords().Gender(Gender.Feminine);
 
-// dwudziestu pięciu złotych i dwudziestu groszy
+// dwadzieścia dwie
 ```
 
-### Configure text format
-dwudziestu pięciu zł (PLN)
-
+### Cardinal numbers (one, two...) and ordinal numbers (first, second...)
 ```c
-25.20.ToCurrencyPolishWords()
-    .Case(Case.Genitive)
-    .Write(x => $"{x.MainUnitAmountInWords} {x.CurrencySymbol} ({x.CurrencyISO})");
+9.ToPolishWords().Ordinal();
     
- // dwudziestu pięciu zł (PLN)
+// dziewiąty
+```
+
+### Big numbers
+```c
+long.MaxValue.ToPolishWords();
+    
+// dziewięć trylionów dwieście dwadzieścia trzy biliardy trzysta siedemdziesiąt dwa biliony trzydzieści sześć miliardów osiemset pięćdziesiąt cztery miliony siedemset siedemdziesiąt pięć tysięcy osiemset siedem
+```
+
+
+### And mix everything together with fluent methods
+```c
+10286.ToPolishWords()
+    .Case(Case.Genitive)
+    .Ordinal()
+    .Gender(Gender.Feminine);
+
+// dziesięć tysięcy dwieście osiemdziesiątej szóstej
+```
+
+### Possibility to create a sentence depends of number denclension.
+```c
+var bikesCount = int.Parse(Console.ReadLine());
+
+var bikeWord = new Phrase()
+{
+    AccusativeForm = "rower",
+    PluralAccusativeForm = "rowery",
+    PluralGenitiveForm = "rowerów"
+};
+
+var sentense = bikesCount.ToPolishWords()
+    .Case(Case.Accusative)
+    .Write(x => $"Wczoraj widziałem {x.Words} {x.GetPhraseAfterNumber(bikeWord)}");
+
+Console.WriteLine(sentense);
+
+// 1 - Wczoraj widziałem jeden rower
+// 2 - Wczoraj widziałem dwa rowery
+// 5 - Wczoraj widziałem pięć rowerów
 ```
 
 ## Others
